@@ -1,9 +1,11 @@
 import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div className="m-auto antialised font-sans font-serif font-mono bg-black text-white">
+    <div className="m-auto antialised font-sans bg-black text-white">
       <Hero />
+      <Navbar />
     </div>
   );
 };
