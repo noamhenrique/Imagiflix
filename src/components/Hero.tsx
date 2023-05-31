@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay, faPlus } from "@fortawesome/free-solid-svg-icons";
+
 import placeholder from "../assets/hero.jpg";
 
 const Hero = ({ title = "Avengers Endgame", score = 10 }) => {
@@ -25,13 +28,17 @@ const Hero = ({ title = "Avengers Endgame", score = 10 }) => {
           <p className="text-base">
             Nota{" "}
             <span
-              className={`inline-block mx-2 py-2 px-3 border-4 bg-black rounded-full ${getBorderColor()}`}
+              className={`inline-block mx-2 my-6 py-2 px-3 border-4 bg-slate-950/75 rounded-full ${getBorderColor()}`}
             >
               {score}
             </span>
           </p>
-          <button className="text-base">Assistir</button>
-          <button className="text-base">Minha Lista</button>
+          <button className="text-base py-2 px-8 mr-2 rounded bg-slate-950/50 transition-all duration-300 ease-in-out hover:bg-slate-50/75 hover:text-black">
+            <FontAwesomeIcon className="mr-2" icon={faPlay} /> Assistir
+          </button>
+          <button className="text-base py-2 px-8 mr-2 rounded bg-slate-950/50 transition-all duration-300 ease-in-out hover:bg-slate-50/75 hover:text-black">
+            <FontAwesomeIcon className="mr-2" icon={faPlus} /> Minha Lista
+          </button>
         </article>
       }
     </header>
