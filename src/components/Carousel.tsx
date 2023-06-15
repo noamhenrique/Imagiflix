@@ -7,11 +7,7 @@ import {
 
 import mockData, { Movie } from "../data/mock";
 
-const Poster = ({ cover, title, score }: Movie, index: number) => (
-  <article key={index}>
-    <img src={cover} alt={title} />
-  </article>
-);
+import Poster from "./Poster";
 
 interface CarouselData {
   title?: string;
@@ -23,13 +19,24 @@ const Carousel = ({ title = "Carousel", data = mockData }: CarouselData) => {
     left,
     right,
   }
-  const SlickArrow = ({ direction }: { direction: Direction }) => (
+  const SlickArrow = ({
+    direction,
+    onClick,
+  }: {
+    direction: Direction;
+    onClick?: () => void; //(event: MouseEvent<HTMLButtonElement, MouseEvent>): void
+  }) => (
     <button
-      className={`absolute w-16 h-full z-10 bg-red-500 ${
+      type="button"
+      className={`absolute w-16 h-full z-10 bg-black bg-opacity-50 top-0 ${
         direction ? "right-0" : "left-0"
       }`}
+      onClick={onClick}
     >
-      <FontAwesomeIcon icon={direction ? faChevronRight : faChevronLeft} />
+      <FontAwesomeIcon
+        icon={direction ? faChevronRight : faChevronLeft}
+        size="3x"
+      />
     </button>
   );
 
@@ -43,8 +50,8 @@ const Carousel = ({ title = "Carousel", data = mockData }: CarouselData) => {
 
   return (
     <section>
-      <h2>{title}</h2>
-      <Slick className="relative" {...options}>
+      <h2 className="relative z-10 font-bold text-2xl ml-8 mb-4">{title}</h2>
+      <Slick className="relative mb-8" {...options}>
         {data.map((movie, index) => Poster(movie, index))}
       </Slick>
     </section>
