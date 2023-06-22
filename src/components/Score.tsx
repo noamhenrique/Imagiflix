@@ -1,6 +1,6 @@
 import "./Score.css";
 
-const Score = ({ value = 5 }: { value?: string | number }) => {
+const Score = ({ value = 5 }: { value?: any }) => {
   const getBorderColor = () => {
     if (value >= 7) {
       return "border-green-400";
