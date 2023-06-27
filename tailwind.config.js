@@ -6,6 +6,7 @@ module.exports = {
     "./src/components/Navbar.tsx",
     "./src/components/Carousel.tsx",
     "./src/components/Poster.tsx",
+    "./src/components/Score.tsx",
   ],
   theme: {
     extend: {},

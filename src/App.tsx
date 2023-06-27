@@ -28,15 +28,17 @@ const App = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     movies && console.log(movies);
-  }, [movies]);
+  }, [movies]); */
+
+  const [featured, ...movieList] = movies ? movies.results : [{}, []];
 
   return (
     <div className="m-auto antialised font-sans bg-black text-white">
-      <Hero {...movies?.results[0]} />
+      <Hero {...featured} />
       <Navbar />
-      <Carousel />
+      <Carousel data={movieList} />
       <Carousel />
     </div>
   );
