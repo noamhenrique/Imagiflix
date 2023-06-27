@@ -15,7 +15,7 @@ const Score = ({ value = 5 }: { value?: any }) => {
     <span
       className={`score inline-block mx-2 my-6 py-2 px-3 border-4 bg-slate-950/75 rounded-full ${getBorderColor()}`}
     >
-      {value}
+      {Math.floor(value)}
     </span>
   );
 };
