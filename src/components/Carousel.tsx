@@ -30,7 +30,7 @@ const Carousel = ({ title = "Carousel", data = mockData }: CarouselData) => {
   }) => (
     <button
       type="button"
-      className={`absolute w-16 h-full z-10 bg-black bg-opacity-50 top-0 ${
+      className={`absolute button w-16 mt-8 z-10 bg-black bg-opacity-50 top-0 ${
         direction ? "right-0" : "left-0"
       }`}
       onClick={onClick}

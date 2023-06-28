@@ -41,12 +41,12 @@ const App = () => {
   const [featured, ...movieList] = movies ? movies.results : [{}, []];
 
   return (
-    <div className="m-auto antialised font-sans bg-black text-white">
+    <div className="m-auto antialised font-sans bg-black/90 text-white">
       <Hero {...featured} />
       <Navbar />
       <Carousel title="Filmes Populares" data={movieList} />
       <Carousel title="Séries Populares" data={series?.results} />
-      <Carousel title="Placeholder" />
+      {/* <Carousel title="Placeholder" /> */}
       <Footer />
     </div>
   );
