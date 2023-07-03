@@ -8,6 +8,7 @@ module.exports = {
     "./src/components/Poster.tsx",
     "./src/components/Score.tsx",
     "./src/components/Footer.tsx",
+    "./src/components/Loading.tsx",
   ],
   theme: {
     extend: {},
