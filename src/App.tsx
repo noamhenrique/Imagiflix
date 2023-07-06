@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import emitter from "./utils/eventEmitter";
 
 import CONST from "./data/constants";
 
@@ -29,7 +30,17 @@ const App = () => {
   const [title, setTitle] = useState();
   const [loading, setLoading] = useState(true);
 
+  const [featured, ...movieList] = movies ? movies.results : [{}, []];
+
+  const getTitle = async ({ type, id }: Title) => {
+    const title = await fetch(`${URL}/${type}/${id}${APISPRING}`);
+    const titleData = await title.json();
+    setTitle(titleData);
+  };
+
   useEffect(() => {
+    emitter.addListener("PosterClick", getTitle);
+
     const fetchData = async () => {
       const movies = await fetch(
         `${URL}/discover/movie${APISPRING}&sort_by=popularity.desc`
@@ -49,19 +60,7 @@ const App = () => {
     fetchData();
   }, []);
 
-  /*   useEffect(() => {
-    movies && console.log(movies);
-  }, [movies]); */
-
-  const [featured, ...movieList] = movies ? movies.results : [{}, []];
-
-  const getTitle = ({ type, id }: Title) => {
-    const fetchData = async () => {
-      const title = await fetch(`${URL}/${type}/${id}${APISPRING}`);
-      const titleData = await title.json();
-      setTitle(titleData);
-    };
-  };
+  useEffect(() => title && console.log(title), [title]);
 
   return (
     <div className="m-auto antialised font-sans bg-black/90 text-white">
