@@ -9,6 +9,7 @@ module.exports = {
     "./src/components/Score.tsx",
     "./src/components/Footer.tsx",
     "./src/components/Loading.tsx",
+    "./src/components/Modal.tsx",
   ],
   theme: {
     extend: {},

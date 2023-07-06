@@ -8,6 +8,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
+import Modal from "./components/Modal";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -39,7 +40,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    emitter.addListener("PosterClick", getTitle);
+    emitter.addListener(CONST.EVENTS.PosterClick, getTitle);
 
     const fetchData = async () => {
       const movies = await fetch(
@@ -60,8 +61,6 @@ const App = () => {
     fetchData();
   }, []);
 
-  useEffect(() => title && console.log(title), [title]);
-
   return (
     <div className="m-auto antialised font-sans bg-black/90 text-white">
       {loading && (
@@ -77,6 +76,7 @@ const App = () => {
           <Carousel title="Filmes Populares" data={movieList} />
           <Carousel title="Séries Populares" data={series?.results} />
           <Footer />
+          {title && Modal(title)}
         </>
       )}
     </div>
