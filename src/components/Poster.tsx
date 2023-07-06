@@ -31,7 +31,7 @@ const Poster = (
       onClick={handleClick}
     >
       <img
-        src={poster_path ? `${IMAGEURL}/w500/${poster_path}` : cover}
+        src={poster_path ? `${IMAGEURL}/w200/${poster_path}` : cover}
         alt={title ? title : name}
       />
       <div className="poster cursor-pointer absolute inset-0 w-full h-full px-2 py-8 grid place-items-center text-center bg-black bg-opacity-75 transition-all duration-500 ease-in-out opacity-0">
