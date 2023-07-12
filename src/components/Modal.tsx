@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import emitter from "../utils/eventEmitter";
 import CONST from "../data/constants";
 
@@ -17,7 +16,6 @@ const Modal = ({
   vote_average,
   runtime,
   number_of_seasons,
-  video,
 }: any) => {
   const { IMAGEURL } = CONST;
 
@@ -41,10 +39,10 @@ const Modal = ({
             onClick={handleClick}
           />
           <h2 className="text-3xl font-bold">{title ? title : name}</h2>
-          <h6 className="font-bold italic my-2">
+          <h6 className="font-bold italic mt-2 mb-8">
             {original_title ? original_title : original_name}
           </h6>
-          <p>{overview}</p>
+          <p className="mb-4">{overview}</p>
           <Score value={vote_average} />
           <span className="bg-red-600 rounded py-2 px-4 ml-2">
             {runtime ? `${runtime}min` : `${number_of_seasons} temporadas`}
