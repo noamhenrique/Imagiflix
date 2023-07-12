@@ -41,6 +41,7 @@ const App = () => {
 
   useEffect(() => {
     emitter.addListener(CONST.EVENTS.PosterClick, getTitle);
+    emitter.addListener(CONST.EVENTS.ModalClose, () => setTitle(undefined));
 
     const fetchData = async () => {
       const movies = await fetch(
